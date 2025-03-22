@@ -37,8 +37,7 @@ function ClientesList() {
             const eliminado = await eliminarCliente(id);
             if (eliminado) {
                 Swal.fire("Cliente eliminado", "El cliente ha sido eliminado correctamente", "success");
-                const data = await obtenerClientes();
-                setClientes(data);
+                 setClientes(clientes.filter(cliente => cliente.id !== id));
             }
             else {
                 Swal.fire("Error", "El cliente no ha sido eliminado", "error");
