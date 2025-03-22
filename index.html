@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + React</title>
+</head>
+
+<body class="relative h-screen bg-slate-950 overflow-hidden">
+  <!-- Primer círculo -->
+  <div class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
+  
+  <!-- Segundo círculo -->
+  <div class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
+
+  <!-- Aquí React monta la aplicación -->
+  <div id="root"></div>
+
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
