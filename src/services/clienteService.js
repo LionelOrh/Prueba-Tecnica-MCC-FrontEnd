@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8090/cliente";
+const API_URL = "https://prueba-tecnica-mcc-backend-production.up.railway.app/cliente";
 
 export const obtenerClientes = async (page = 0, size = 5, nombre = '') => {
     try {
