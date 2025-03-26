@@ -1,4 +1,4 @@
-const API_URL = "https://prueba-tecnica-mcc-backend-production.up.railway.app/cliente";
+const API_URL = "http://localhost:8090/cliente";
 
 export const obtenerClientes = async (page = 0, size = 5, nombre = '') => {
     try {
@@ -7,10 +7,10 @@ export const obtenerClientes = async (page = 0, size = 5, nombre = '') => {
         if (!respuesta.ok) {
             throw new Error("Error en la petición");
         }
-        return await respuesta.json(); // Aquí deberías recibir un objeto con información de la paginación
+        return await respuesta.json(); 
     } catch (error) {
         console.log(error);
-        return { content: [], totalPages: 0 }; // Asegúrate de que siempre retorne un objeto con la propiedad content y totalPages
+        return { content: [], totalPages: 0 };
     }
 };
 

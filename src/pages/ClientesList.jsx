@@ -14,9 +14,9 @@ function ClientesList() {
 
     useEffect(() => {
         const cargarClientes = async () => {
-            const data = await obtenerClientes(page, 5, nombre); // Pasa el filtro de nombre al backend
-            setClientes(data.content); // Los clientes
-            setTotalPages(data.totalPages); // Total de páginas
+            const data = await obtenerClientes(page, 5, nombre); 
+            setClientes(data.content); 
+            setTotalPages(data.totalPages); 
         };
         cargarClientes();
     }, [page, nombre]);
@@ -37,8 +37,7 @@ function ClientesList() {
             const eliminado = await eliminarCliente(id);
             if (eliminado) {
                 Swal.fire("Cliente eliminado", "El cliente ha sido eliminado correctamente", "success");
-                const data = await obtenerClientes();
-                setClientes(data);
+                setClientes(clientes.filter(cliente => cliente.id !== id));
             }
             else {
                 Swal.fire("Error", "El cliente no ha sido eliminado", "error");
@@ -46,25 +45,25 @@ function ClientesList() {
         }
     };
     const handleEditar = (cliente) => {
-        navigate(`/registrar/${cliente.id}`, { state: { cliente } });
+        navigate(`/actualizar/${cliente.id}`, { state: { cliente } });
     };
 
     const handlePageChange = (newPage) => {
-        setPage(newPage); // Cambia la página al siguiente número
+        setPage(newPage); 
     };
 
 
     return (
         <div className="flex justify-center items-start h-screen pt-5">
-            <div className="w-3/5 mx-auto p-4 bg-white shadow-lg rounded-lg"> {/* Fondo blanco para la tabla */}
+            <div className="w-3/5 mx-auto p-4 bg-white shadow-lg rounded-lg">
                 <h2 className="text-2xl font-bold text-center mb-4">Lista de Clientes</h2>
                 <div className="flex justify-between mb-4">
                     <input
                         type="text"
                         placeholder="Buscar por nombre..."
                         value={nombre}
-                        onChange={(e) => setNombre(e.target.value)} // Actualiza el estado de nombre
-                        className="p-2 border border-gray-300 rounded w-1/2" // Ajusta el tamaño del input
+                        onChange={(e) => setNombre(e.target.value)}
+                        className="p-2 border border-gray-300 rounded w-1/2"
                     />
                     <Button text="Agregar Cliente" onClick={() => navigate("/registrar")} className="ml-4" />
                 </div>

@@ -144,9 +144,7 @@ function RegistrarCliente() {
         }
     };
 
-    // Función para navegar al inicio sin confirmar la actualización
     const handleGoHome = () => {
-        // Si estás en modo de actualización, evita que se confirme la actualización
         Swal.fire({
             title: "¿Estás seguro?",
             text: "Si regresas, se perderán los cambios no guardados.",
@@ -222,14 +220,14 @@ function RegistrarCliente() {
                         <Button
                             text="Regresar al Inicio"
                             onClick={handleGoHome}
-                            className="w-1/2" // Asignamos 30% del ancho
-                            type="cancel" // Tipo cancel para el botón de regresar
+                            className="w-1/2" 
+                            type="cancel" 
                         />
                         <Button
                             text="Confirmar"
                             onClick={handleSubmit}
-                            className="w-1/2" // Asignamos 70% del ancho
-                            type="confirm" // Tipo confirm para el botón de confirmar
+                            className="w-1/2" 
+                            type="confirm"
                         />
                     </div>
                 </form>
